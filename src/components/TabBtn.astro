@@ -1,0 +1,20 @@
+---
+const { title, selected } = Astro.props;
+const title_lower = title.toLowerCase();
+---
+
+<button
+        role="tab"
+        aria-selected={selected}
+        aria-controls=`panel-${title_lower}`
+        id=`tab-"${title_lower}`
+        class={`px-4 py-2 rounded-full font-semibold cursor-pointer
+        text-[#cfd1d6]  border-0
+        hover:text-white
+        ${selected
+            ? "bg-[#1a1b21] text-white shadow-[inset_0_0_0_1px_#2b2d35]"
+            : ""
+        }`}
+>
+    {title}
+</button>

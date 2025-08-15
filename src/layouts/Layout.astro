@@ -1,7 +1,37 @@
 ---
 import "../styles/global.css";
 ---
-<div>
-    <h3>hhjhjhjg</h3>
-    <slot />
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>NSTUDIOS</title>
+</head>
+
+<body class="bg-nst-bg text-white relative">
+<!-- Glow Background -->
+<div class="fixed inset-0 -z-10 bg-nst-glow"></div>
+
+<!-- Header -->
+<header class="max-w-7xl mx-auto flex items-center gap-6 py-4 px-4">
+    <div class="flex items-center gap-2 font-bold text-lg">
+        <div class="w-8 h-8 rounded-lg grid place-items-center bg-nst-gradient text-nst-black font-extrabold shadow-lg">
+            N
+        </div>
+        NSTUDIOS
+    </div>
+    <nav class="ml-auto flex gap-6 text-gray-400">
+        <a href="#" class="hover:text-white">Pricing</a>
+        <a href="#" class="hover:text-white">Docs</a>
+        <a href="#" class="hover:text-white">Dashboard</a>
+        <a href="#" class="hover:text-white">Contact</a>
+    </nav>
+</header>
+<div class="h-full">
+    <slot/>
 </div>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+/* === Theme tokens === */
+
+
+/* === Page base === */
+html, body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Glow background: use your file OR keep gradients */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: radial-gradient(1200px 800px at 75% 55%, rgba(255, 132, 124, .55) 0%, rgba(38, 22, 22, .55) 52%, rgba(0, 0, 0, 0) 70%),
+    linear-gradient(#0c0d10, #0a0b0d 60%, #090a0b);
+    /* If you prefer the exact image, uncomment line below and point to your asset: */
+    /* background: #0c0d10 url('nstudios-bg.svg') center/cover no-repeat fixed; */
+}
+
+/* subtle grain */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .08;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23n)" opacity="0.6"/></svg>');
+    mix-blend-mode: overlay;
+}
+
+/* === Layout === */
+.container {
+    max-width: var(--max);
+    margin-inline: auto;
+    padding: 24px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding-block: 8px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    letter-spacing: .4px
+}
+
+.logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    background: var(--coral-grad, linear-gradient(160deg, var(--nst-coral), #ff9d96));
+    color: #111;
+    font-weight: 900;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    box-shadow: 0 6px 16px rgba(255, 132, 124, .35), inset 0 0 0 2px rgba(255, 255, 255, .18);
+}
+
+nav {
+    margin-left: auto;
+    display: flex;
+    gap: 26px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500
+}
+
+nav a:hover {
+    color: #fff
+}
+
+.hero {
+    padding: 64px 0 30px
+}
+
+.eyebrow {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: .78rem
+}
+
+h1 {
+    margin: 8px 0 16px;
+    font-size: clamp(32px, 6vw, 58px);
+    line-height: 1.05;
+    font-weight: 800;
+    color: #f4f4f5;
+}
+
+.sub {
+    color: var(--muted);
+    max-width: 760px;
+    font-size: 1.05rem
+}
+
+/* Tabs */
+.tabs {
+    display: inline-flex;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(20, 21, 25, .6);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    margin-top: 28px;
+    backdrop-filter: blur(6px);
+}
+
+.tab {
+    border: 0;
+    padding: 10px 16px;
+    border-radius: 999px;
+    color: #cfd1d6;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600
+}
+
+.tab[aria-selected="true"] {
+    background: #1a1b21;
+    color: #fff;
+    box-shadow: inset 0 0 0 1px #2b2d35
+}
+
+/* Cards grid */
+.grid {
+    display: grid;
+    gap: 22px;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    margin-top: 26px
+}
+
+.card {
+    background: linear-gradient(180deg, var(--card), var(--card-2));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    margin: 0 0 12px;
+    font-size: 1.35rem
+}
+
+.price {
+    font-size: 2rem;
+    margin-top: 14px;
+    font-weight: 800;
+    color: var(--nst-coral)
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.specs {
+    margin-top: 10px;
+    line-height: 1.8
+}
+
+.cta-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin: 30px 0 60px
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #dcdde3
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--nst-coral);
+    box-shadow: 0 0 0 3px rgba(255, 132, 124, .18)
+}
+
+.button {
+    appearance: none;
+    border: 0;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-weight: 800;
+    cursor: pointer;
+    background: linear-gradient(160deg, var(--nst-coral), #ff9d96);
+    color: #111;
+    box-shadow: 0 12px 30px rgba(255, 132, 124, .3);
+}
+
+.button:hover {
+    filter: brightness(1.03)
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+    nav {
+        display: none
+    }
+
+    .grid {
+        grid-template-columns:1fr
+    }
+
+    .tabs {
+        display: flex
+    }
+}

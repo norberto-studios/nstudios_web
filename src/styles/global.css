@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+:root{
+    --nst-black:#111111;
+    --nst-coral:#ff847c;
+    --nst-peach:#ffeada;
+    --nst-orange:#fdb276;
+    --bg:#0c0d10;
+    --text:#e9e9ea;
+    --muted:#b5b7bb;
+    --card:#141519;
+    --card-2:#121317;
+    --border:#23242a;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --max: 1100px;
+}
+
+@theme {
+    --color-nst-black: #111111;
+    --color-nst-coral: #ff847c;
+    --color-nst-peach: #ffeada;
+    --color-nst-orange: #fdb276;
+    --color-nst-bg: #0c0d10;
+    --color-nst-card: #141519;
+    --color-nst-card2: #121317;
+
+    --background-image-nst-glow: radial-gradient(
+            1200px 800px at 75% 55%,
+            rgba(255,132,124,.55) 0%,
+            rgba(38,22,22,.55) 52%,
+            rgba(0,0,0,0) 70%
+    );
+
+    --background-image-nst-gradient: linear-gradient(160deg, #ff847c, #ff9d96);
+}

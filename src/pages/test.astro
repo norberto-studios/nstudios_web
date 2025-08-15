@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/test.css";
+---
+
+<Layout>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="eyebrow">Pricing</div>
+        <h1>Simple, Transparent<br/>Pricing.</h1>
+        <p class="sub">Pay only for what you use. No hidden fees, no surprises.</p>
+
+        <!-- Tabs -->
+        <div class="tabs" role="tablist" aria-label="Pricing Tabs">
+            <button class="tab" role="tab" aria-selected="true" aria-controls="panel-compute" id="tab-compute">Compute
+            </button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-storage" id="tab-storage">
+                Storage
+            </button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-networking" id="tab-networking">
+                Networking
+            </button>
+        </div>
+    </section>
+
+    <!-- Panels -->
+    <section id="panel-compute" role="tabpanel" aria-labelledby="tab-compute">
+        <div class="grid">
+            <!-- Small -->
+            <article class="card">
+                <h3>Small VM</h3>
+                <div class="muted specs">
+                    2 vCPU<br/>
+                    4 GB RAM<br/>
+                    80 GB SSD
+                </div>
+                <div class="price">$15<span class="muted" style="font-weight:600">/mo</span></div>
+            </article>
+
+            <!-- Medium -->
+            <article class="card">
+                <h3>Medium VM</h3>
+                <div class="muted specs">
+                    4 vCPU<br/>
+                    8 GB RAM<br/>
+                    160 GB SSD
+                </div>
+                <div class="price">$40<span class="muted" style="font-weight:600">/mo</span></div>
+            </article>
+
+            <!-- Large -->
+            <article class="card">
+                <h3>Large VM</h3>
+                <div class="muted specs">
+                    8 vCPU<br/>
+                    16 GB RAM<br/>
+                    320 GB SSD
+                </div>
+                <div class="price">$90<span class="muted" style="font-weight:600">/mo</span></div>
+            </article>
+        </div>
+
+        <div class="cta-row">
+            <span class="badge"><span class="dot"></span> Uptime SLA</span>
+            <span class="badge"><span class="dot"></span> DDoS Protection</span>
+            <span class="badge"><span class="dot"></span> Managed Backups</span>
+        </div>
+
+        <button class="button">Start Your Free Trial</button>
+    </section>
+
+    <!-- Storage panel (placeholder) -->
+    <section id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" hidden>
+        <div class="grid">
+            <article class="card">
+                <h3>Object Storage</h3>
+                <div class="muted specs">First 250GB included<br/>$0.015/GB-mo thereafter</div>
+                <div class="price">$5<span class="muted">/mo</span></div>
+            </article>
+            <article class="card">
+                <h3>Cold Storage</h3>
+                <div class="muted specs">Low-cost, infrequent access</div>
+                <div class="price">$3<span class="muted">/mo</span></div>
+            </article>
+            <article class="card">
+                <h3>CDN Add‑On</h3>
+                <div class="muted specs">Global edge delivery</div>
+                <div class="price">$9<span class="muted">/mo</span></div>
+            </article>
+        </div>
+        <div class="cta-row">
+            <span class="badge"><span class="dot"></span> S3‑compatible</span>
+            <span class="badge"><span class="dot"></span> Durable & Secure</span>
+            <span class="badge"><span class="dot"></span> Simple Pricing</span>
+        </div>
+        <button class="button">Start Your Free Trial</button>
+    </section>
+
+    <!-- Networking panel (placeholder) -->
+    <section id="panel-networking" role="tabpanel" aria-labelledby="tab-networking" hidden>
+        <div class="grid">
+            <article class="card">
+                <h3>Private VLAN</h3>
+                <div class="muted specs">Isolated network segments</div>
+                <div class="price">$10<span class="muted">/mo</span></div>
+            </article>
+            <article class="card">
+                <h3>Static IPs</h3>
+                <div class="muted specs">Additional IPv4 addresses</div>
+                <div class="price">$3<span class="muted">/mo</span></div>
+            </article>
+            <article class="card">
+                <h3>Advanced Firewall</h3>
+                <div class="muted specs">Layer‑4 rules & logging</div>
+                <div class="price">$5<span class="muted">/mo</span></div>
+            </article>
+        </div>
+        <div class="cta-row">
+            <span class="badge"><span class="dot"></span> High‑speed Links</span>
+            <span class="badge"><span class="dot"></span> Isolation</span>
+            <span class="badge"><span class="dot"></span> Control</span>
+        </div>
+        <button class="button">Start Your Free Trial</button>
+    </section>
+</Layout>
+
+<script src="../scripts/test-tab.js"></script>
