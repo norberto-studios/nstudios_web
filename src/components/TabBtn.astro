@@ -4,6 +4,7 @@ const title_lower = title.toLowerCase();
 ---
 
 <button
+        data-key={title_lower}
         role="tab"
         aria-selected={selected}
         aria-controls=`panel-${title_lower}`

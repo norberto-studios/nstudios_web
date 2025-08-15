@@ -4,7 +4,9 @@ import Card from "../components/Card.astro";
 import TabBtn from "../components/TabBtn.astro";
 
 const tab_btn_titles = ["Compute", "Storage", "Networking"];
-let activeTab = "Compute";
+let activeTab = tab_btn_titles[0];
+
+const isPanelActive = (title) => title === activeTab;
 ---
 
 <Layout>
@@ -16,7 +18,7 @@ let activeTab = "Compute";
 
         <!-- Tabs -->
         <div class="flex gap-2 mt-6 bg-zinc-950/60 border border-zinc-800 rounded-full p-2.5 backdrop-blur-xs md:w-fit">
-            {tab_btn_titles.map((title: string) => <TabBtn title={title} selected={title === activeTab}/>)}
+            {tab_btn_titles.map((title: string) => <TabBtn title={title} selected={isPanelActive(title)}/>)}
         </div>
 
         <section id="panel-compute" role="tabpanel" aria-labelledby="tab-compute">
@@ -34,21 +36,21 @@ let activeTab = "Compute";
             </div>
         </section>
 
-        <section id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" hidden>
+        <section id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" class="hidden">
             <div class="grid gap-6 mt-6 md:grid-cols-3">
-                <Card title="Small VM"
-                      price="15"
-                      items={["2 vCPU", "4 GB RAM", "80 GB SSD"]}/>
-                <Card title="Medium VM"
-                      price="40"
-                      items={["4 vCPU", "8 GB RAM", "160 GB SSD"]}/>
-                <Card title="Large VM"
-                      price="90"
-                      items={["8 vCPU", "16 GB RAM", "320 GB SSD"]}/>
+                <Card title="Object Storage"
+                      price="5"
+                      items={["First 250GB included", "0.015/GB-mo thereafter"]}/>
+                <Card title="Cold Storage"
+                      price="3"
+                      items={["Low-cost, infrequent access"]}/>
+                <Card title="CDN Add‑On"
+                      price="9"
+                      items={["Global edge delivery"]}/>
             </div>
         </section>
 
-        <section id="panel-networking" role="tabpanel" aria-labelledby="tab-networking" hidden>
+        <section id="panel-networking" role="tabpanel" aria-labelledby="tab-networking" class="hidden">
             <div class="grid gap-6 mt-6 md:grid-cols-3">
                 <Card title="Small VM"
                       price="15"
