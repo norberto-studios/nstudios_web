@@ -7,9 +7,12 @@ import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://norberto-studios.github.io',
+  base: 'nstudios_web',
+
   vite: {
     plugins: [tailwindcss()]
   },
-
   integrations: [svelte()]
+
 });
