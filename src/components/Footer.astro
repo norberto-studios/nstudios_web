@@ -1,9 +1,12 @@
 ---
-import NStudioLogo from "./NStudioLogo.astro";---
+import NStudioLogo from "./NStudioLogo.astro";
+const {showInfoLinks = true } = Astro.props;
+---
 
 
 <footer class="bg-black text-gray-400 py-12 ">
-    <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-sm">
+    { showInfoLinks ?
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-sm">
         <div>
 
             <h4 class="text-white font-semibold mb-3"><NStudioLogo/></h4>
@@ -40,7 +43,8 @@ import NStudioLogo from "./NStudioLogo.astro";---
             </ul>
         </div>
     </div>
-
+        : null
+    }
     <div class="mt-10 text-center border-t border-gray-800 pt-6">
         <p class="text-sm">
             INFINITE IDEAS, LIMITLESS CREATION. <br>

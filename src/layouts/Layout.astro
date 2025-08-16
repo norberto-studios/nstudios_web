@@ -5,36 +5,26 @@ import NStudioLogo from "../components/NStudioLogo.astro";
 import HeaderMenu from "../components/nav/menu.svelte"
 ---
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <meta name="viewport" content="width=device-width"/>
-    <meta name="generator" content={Astro.generator}/>
-    <title>NSTUDIOS</title>
-</head>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+        <meta name="viewport" content="width=device-width"/>
+        <meta name="generator" content={Astro.generator}/>
+        <title>NSTUDIOS</title>
+    </head>
 
-<body class="bg-nst-bg text-white relative">
+    <body class="bg-nst-bg text-white relative">
 
-<div class="fixed inset-0 -z-10 bg-nst-glow hidden md:block"></div>
-<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-    <div
-            class="absolute left-1/2 -translate-x-1/2
-                 top-[-35%] md:top-[-45%]
-                 w-[120vw] h-[120vw] md:w-[1100px] md:h-[1100px]
-                 rounded-full bg-nst-coral/25 blur-3xl"
-    ></div>
-</div>
+        <div class="fixed inset-0 -z-10 bg-nst-glow hidden md:block"></div>
 
-
-<!-- Header -->
-<header class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 ">
-    <a href="/"><NStudioLogo/></a>
-    <HeaderMenu client:load/>
-</header>
-<div class="min-h-screen flex flex-col justify-between">
-    <slot/>
-    <Footer/>
-</div>
-
-</body>
+        <!-- Header -->
+        <header class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 ">
+            <a href="/"><NStudioLogo/></a>
+            <!--<HeaderMenu client:load/>-->
+        </header>
+        <div class="min-h-screen flex flex-col justify-between">
+            <slot/>
+            <Footer showInfoLinks={false}/>
+        </div>
+    </body>
 </html>
