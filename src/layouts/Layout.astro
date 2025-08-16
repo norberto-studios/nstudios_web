@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import NStudioLogo from "../components/NStudioLogo.astro";
 ---
 <html lang="en">
 <head>
@@ -11,17 +13,12 @@ import "../styles/global.css";
 </head>
 
 <body class="bg-nst-bg text-white relative">
-<!-- Glow Background -->
+
 <div class="fixed inset-0 -z-10 bg-nst-glow"></div>
 
 <!-- Header -->
 <header class="max-w-7xl mx-auto flex items-center gap-6 py-4 px-4">
-    <div class="flex items-center gap-2 font-bold text-lg">
-        <div class="w-8 h-8 grid place-items-center rounded border-2 border-nst-coral text-nst-coral text-2xl font-extrabold shadow-lg leading-none">
-            N
-        </div>
-        NSTUDIOS
-    </div>
+    <NStudioLogo/>
     <nav class="ml-auto flex gap-6 text-gray-400">
         <a href="#" class="hover:text-white">Pricing</a>
         <a href="#" class="hover:text-white">Docs</a>
@@ -31,10 +28,7 @@ import "../styles/global.css";
 </header>
 <div class="min-h-screen flex flex-col justify-between">
     <slot/>
-    <footer class="bg-black py-8 text-center text-gray-500 text-sm">
-        INFINITE IDEAS, LIMITLESS CREATION. <br>
-        © 2025 NSTUDIOS LLC — All Rights Reserved
-    </footer>
+    <Footer/>
 </div>
 
 </body>
