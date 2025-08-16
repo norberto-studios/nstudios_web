@@ -3,10 +3,12 @@ import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import NStudioLogo from "../components/NStudioLogo.astro";
 import HeaderMenu from "../components/nav/menu.svelte"
+import Analytics from "../components/Analytics.astro";
 ---
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
+        <Analytics/>
         <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
         <meta name="viewport" content="width=device-width"/>
         <meta name="generator" content={Astro.generator}/>
@@ -28,14 +30,3 @@ import HeaderMenu from "../components/nav/menu.svelte"
         </div>
     </body>
 </html>
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TPF81CCQNQ"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-TPF81CCQNQ');
-</script>
