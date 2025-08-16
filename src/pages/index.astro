@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Card1 from "../components/atoms/Card.astro";
 
 import SslIcon from '../assets/icons/lock-icon.svg';
 import UptimeIcon from '../assets/icons/uptime-icon.svg';
@@ -106,7 +107,10 @@ import BareMetalIcon from '../assets/icons/bare-icon.svg';
                 <Card title="Medium VM" hover
                       price="40"
                       items={["4 vCPU", "8 GB RAM", "160 GB SSD"]}/>
-                <Card title="Large VM" hover
+                <Card1
+                        darkGradiant
+                        canHover
+                        title="Large VM"
                       price="90"
                       items={["8 vCPU", "16 GB RAM", "320 GB SSD"]}/>
             </div>
@@ -125,13 +129,26 @@ import BareMetalIcon from '../assets/icons/bare-icon.svg';
     </section>
 
     <!-- ads cta to pricing -->
-    <section class="py-20 px-6 bg-black/50 text-white text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl font-bold mb-6">Fast, Secure, Scalable Hosting by NSTUDIOS</h1>
-            <p class="text-lg text-white/80 mb-8">Launch and scale your site with modern infrastructure, developer tools, and world-class support.</p>
-            <a href="/pricing" class="inline-block bg-nst-coral hover:bg-nst-coral/90 text-white font-semibold px-6 py-3 rounded-lg">View Plans</a>
+    <section class=" py-16 px-6 md:px-12">
+        <div class="  bg-gradient-to-br from-nst-coral/10 to-white/5 p-8 rounded-2xl border border-nst-coral/30 shadow-xl max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 items-center gap-8">
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold mb-2">Fast, Secure, Scalable Hosting by NSTUDIOS</h3>
+                    <p class="text-gray-300 mb-4">Launch and scale your site with modern infrastructure, developer tools, and world-class support.</p>
+                    <a href="/pricing" class="inline-block bg-nst-coral hover:bg-nst-coral/90 text-white font-semibold px-6 py-3 rounded-lg">View Plans</a>
+                </div>
+                <div class="relative">
+                    <img src="atc2.png" alt="Web Hosting Preview"
+                         class="rounded-xl shadow-lg border border-white/10"/>
+                    <!--<div class="absolute top-4 right-4 bg-green-500 text-xs text-white font-semibold px-2 py-1 rounded">-->
+                    <!--    SSL Active-->
+                    <!--</div>-->
+                </div>
+            </div>
         </div>
     </section>
+
+
 
     <!-- What We Offer Section -->
     <section class="bg-black/60 text-white py-20 ">
@@ -143,38 +160,32 @@ import BareMetalIcon from '../assets/icons/bare-icon.svg';
             </p>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <!--<div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">-->
-                <div class="flex flex-col items-center group  bg-white/5 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition cursor-pointer">
-                    <HostingIcon class="text-nst-coral w-10 h-10 mb-2"/>
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Web Hosting</h3>
-                    <p class="text-sm mb-2 text-white/90">Secure, scalable platform for your apps.</p>
-                    <ul class="text-xs text-white/70 list-disc list-inside">
-                        <li>WordPress & static sites</li>
-                        <li>CDN, SSL, backups</li>
-                        <li>Git, CLI, staging tools</li>
-                    </ul>
-                </div>
 
-                <div class="flex flex-col items-center group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <VpsIcon class="text-nst-coral w-10 h-10 mb-2"/>
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Managed VPS <span
-                            class="text-xs italic text-gray-400">(Soon)</span></h3>
-                    <p class="text-sm text-white/90">Root access, managed options, and performance.</p>
-                </div>
+                <Card1 canHover
+                       Icon={HostingIcon}
+                       title="Web Hosting"
+                       description="Secure, scalable platform for your apps."
+                       items={["WordPress & static sites", "CDN, SSL, backups", "Git, CLI, staging tools"]}
+                />
+                <Card1 canHover
+                       Icon={VpsIcon}
+                       title="Managed VPS"
+                       titleNote="(soon)"
+                       description="Root access, managed options, and performance."
+                />
+                <Card1 canHover
+                       Icon={AppIcon}
+                       title="App Deploy"
+                       titleNote="(soon)"
+                       description="Deploy Docker, Node.js, Python, Go with Git workflows."
+                />
+                <Card1 canHover
+                       Icon={BareMetalIcon}
+                       title="Bare Metal"
+                       titleNote="(soon)"
+                       description="Raw compute for AI, analytics, and heavy workloads."
+                />
 
-                <div class="flex flex-col items-center group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <AppIcon class="text-nst-coral w-10 h-10 mb-2"/>
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">App Deploy <span
-                            class="text-xs italic text-gray-400">(Soon)</span></h3>
-                    <p class="text-sm text-white/90">Deploy Docker, Node.js, Python, Go with Git workflows.</p>
-                </div>
-
-                <div class="flex flex-col items-center group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <BareMetalIcon class="text-nst-coral w-10 h-10 mb-2"/>
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Bare Metal <span
-                            class="text-xs italic text-gray-400">(Soon)</span></h3>
-                    <p class="text-sm text-white/90">Raw compute for AI, analytics, and heavy workloads.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -190,13 +201,13 @@ import BareMetalIcon from '../assets/icons/bare-icon.svg';
 
     <!-- Ad CTA -->
     <section class=" py-16 px-6 md:px-12">
-        <div class=" mt-16 bg-gradient-to-br from-nst-coral/10 to-white/5 p-8 rounded-2xl border border-nst-coral/30 shadow-xl max-w-5xl mx-auto">
+        <div class=" bg-gradient-to-br from-nst-coral/10 to-white/5 p-8 rounded-2xl border border-nst-coral/30 shadow-xl max-w-5xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-8">
                 <div class="text-left">
                     <h3 class="text-2xl font-bold mb-2">Web Hosting</h3>
                     <p class="text-gray-300 mb-4">Boost your online visibility and give your business a good name.
                         Secure your space on the web.</p>
-                    <a href="#" class="inline-block bg-nst-coral text-white px-5 py-2 rounded font-semibold">Host and
+                    <a href="/pricing" class="inline-block bg-nst-coral hover:bg-nst-coral/90 text-white font-semibold px-6 py-3 rounded-lg">Host and
                         Scale</a>
                 </div>
                 <div class="relative">
