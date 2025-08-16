@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import NStudioLogo from "../components/NStudioLogo.astro";
+import HeaderMenu from "../components/nav/menu.svelte"
 ---
 <html lang="en">
 <head>
@@ -14,17 +15,21 @@ import NStudioLogo from "../components/NStudioLogo.astro";
 
 <body class="bg-nst-bg text-white relative">
 
-<div class="fixed inset-0 -z-10 bg-nst-glow"></div>
+<div class="fixed inset-0 -z-10 bg-nst-glow hidden md:block"></div>
+<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div
+            class="absolute left-1/2 -translate-x-1/2
+                 top-[-35%] md:top-[-45%]
+                 w-[120vw] h-[120vw] md:w-[1100px] md:h-[1100px]
+                 rounded-full bg-nst-coral/25 blur-3xl"
+    ></div>
+</div>
+
 
 <!-- Header -->
-<header class="max-w-7xl mx-auto flex items-center gap-6 py-4 px-4">
-    <NStudioLogo/>
-    <nav class="ml-auto flex gap-6 text-gray-400">
-        <a href="#" class="hover:text-white">Pricing</a>
-        <a href="#" class="hover:text-white">Docs</a>
-        <a href="#" class="hover:text-white">Dashboard</a>
-        <a href="#" class="hover:text-white">Contact</a>
-    </nav>
+<header class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 ">
+    <a href="/"><NStudioLogo/></a>
+    <HeaderMenu client:load/>
 </header>
 <div class="min-h-screen flex flex-col justify-between">
     <slot/>

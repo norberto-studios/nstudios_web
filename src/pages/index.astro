@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-
 ---
 
 
@@ -13,13 +12,15 @@ import Card from "../components/Card.astro";
         </div>
 
         <div class="relative z-10 container mx-auto text-center px-4 py-24">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Powerful Compute.<br />Personalized Cloud.</h1>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Powerful Compute.<br/>Personalized Cloud.</h1>
             <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-                High-performance infrastructure for startups, developers, and enterprises — hosted and managed by NSTUDIOS.
+                High-performance infrastructure for startups, developers, and enterprises — hosted and managed by
+                NSTUDIOS.
             </p>
             <div class="flex justify-center gap-4 mb-16">
-                <a href="#" class="bg-nst-coral text-white px-6 py-3 rounded shadow font-semibold">Deploy Now</a>
-                <a href="#" class="border border-nst-coral text-nst-coral px-6 py-3 rounded font-semibold">View Pricing</a>
+                <a href="/pricing" class="bg-nst-coral text-white px-6 py-3 rounded shadow font-semibold">Deploy Now</a>
+                <a href="/pricing" class="border border-nst-coral text-nst-coral px-6 py-3 rounded font-semibold">View
+                    Pricing</a>
             </div>
 
 
@@ -35,37 +36,36 @@ import Card from "../components/Card.astro";
 ✔ Applying CDN + SSL + Backup...
 → Done! Your app is live at: https://yourapp.nstudios.cloud
       </pre>
-
+            </div>
+            <div class="mt-5">
                 <div class="inline-flex items-center gap-3 px-4 py-2 bg-green-600/10 text-green-400 rounded-full text-sm font-mono animate-pulse shadow-inner">
-                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                     </svg>
                     Live Deployment Ready
                 </div>
-
             </div>
         </div>
-
-
-
     </section>
 
     <section id="panel-compute" role="tabpanel" aria-labelledby="tab-compute" class="max-w-7xl mx-auto px-4 py-16">
         <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">Simple, Transparent Pricing.</h1>
         <p class="text-gray-400 mt-4">Pay only for what you use. No hidden fees, no surprises.</p>
         <div class="container mx-auto px-4 py-10">
-        <div class="grid gap-6 mt-6 md:grid-cols-3 hover:scale-105 transition-transform duration-300 ease-in-out
+            <div class="grid gap-6 mt-6 md:grid-cols-3
 ">
-            <Card title="Small VM"
-                  price="15"
-                  items={["2 vCPU", "4 GB RAM", "80 GB SSD"]}/>
-            <Card title="Medium VM"
-                  price="40"
-                  items={["4 vCPU", "8 GB RAM", "160 GB SSD"]}/>
-            <Card title="Large VM"
-                  price="90"
-                  items={["8 vCPU", "16 GB RAM", "320 GB SSD"]}/>
-        </div>
+                <Card hover
+                        title="Small VM"
+                      price="15"
+                      items={["2 vCPU", "4 GB RAM", "80 GB SSD"]}/>
+                <Card title="Medium VM" hover
+                      price="40"
+                      items={["4 vCPU", "8 GB RAM", "160 GB SSD"]}/>
+                <Card title="Large VM" hover
+                      price="90"
+                      items={["8 vCPU", "16 GB RAM", "320 GB SSD"]}/>
+            </div>
         </div>
     </section>
 
@@ -73,7 +73,8 @@ import Card from "../components/Card.astro";
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-6 text-center">What We Offer</h2>
             <p class="max-w-2xl mx-auto text-center mb-12 text-white/80">
-                NSTUDIOS provides the tools, infrastructure, and support you need to build, scale, and grow. Whether you're launching your first app or migrating enterprise workloads — we've got your back.
+                NSTUDIOS provides the tools, infrastructure, and support you need to build, scale, and grow. Whether
+                you're launching your first app or migrating enterprise workloads — we've got your back.
             </p>
 
             <div class="grid md:grid-cols-4 gap-6">
@@ -88,57 +89,45 @@ import Card from "../components/Card.astro";
                 </div>
 
                 <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Managed VPS <span class="text-xs italic text-gray-400">(Soon)</span></h3>
+                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Managed VPS <span
+                            class="text-xs italic text-gray-400">(Soon)</span></h3>
                     <p class="text-sm text-white/90">Root access, managed options, and performance.</p>
                 </div>
 
                 <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">App Deploy <span class="text-xs italic text-gray-400">(Soon)</span></h3>
+                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">App Deploy <span
+                            class="text-xs italic text-gray-400">(Soon)</span></h3>
                     <p class="text-sm text-white/90">Deploy Docker, Node.js, Python, Go with Git workflows.</p>
                 </div>
 
                 <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Bare Metal <span class="text-xs italic text-gray-400">(Soon)</span></h3>
+                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Bare Metal <span
+                            class="text-xs italic text-gray-400">(Soon)</span></h3>
                     <p class="text-sm text-white/90">Raw compute for AI, analytics, and heavy workloads.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-
     <section class=" py-16 px-6 md:px-12">
         <div class="mt-16 bg-gradient-to-br from-nst-coral/10 to-white/5 p-8 rounded-2xl border border-nst-coral/30 shadow-xl max-w-5xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-8">
                 <div class="text-left">
                     <h3 class="text-2xl font-bold mb-2">Web Hosting</h3>
-                    <p class="text-gray-300 mb-4">Boost your online visibility and give your business a good name. Secure your space on the web.</p>
-                    <a href="#" class="inline-block bg-nst-coral text-white px-5 py-2 rounded font-semibold">Host and Scale</a>
+                    <p class="text-gray-300 mb-4">Boost your online visibility and give your business a good name.
+                        Secure your space on the web.</p>
+                    <a href="#" class="inline-block bg-nst-coral text-white px-5 py-2 rounded font-semibold">Host and
+                        Scale</a>
                 </div>
                 <div class="relative">
-                    <img src="/public/test-image.png" alt="Web Hosting Preview" class="rounded-xl shadow-lg border border-white/10" />
-                    <div class="absolute top-4 right-4 bg-green-500 text-xs text-white font-semibold px-2 py-1 rounded">SSL Active</div>
+                    <img src="/public/test-image.png" alt="Web Hosting Preview"
+                         class="rounded-xl shadow-lg border border-white/10"/>
+                    <!--<div class="absolute top-4 right-4 bg-green-500 text-xs text-white font-semibold px-2 py-1 rounded">-->
+                    <!--    SSL Active-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
-        <!--<div class="max-w-6xl mx-auto text-center">-->
-        <!--    <div class="container mx-auto px-4 text-center">-->
-        <!--        <h2 class="text-2xl font-semibold mb-4">Visual Showcase</h2>-->
-        <!--        <p class="mb-8 text-gray-700">Screenshots of the dashboard, terminal-based deployment, and live monitoring tools.</p>-->
-        <!--        &lt;!&ndash; Placeholder for screenshots &ndash;&gt;-->
-        <!--        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">-->
-        <!--            <div class="bg-white rounded shadow h-48"></div>-->
-        <!--            <div class="bg-white rounded shadow h-48"></div>-->
-        <!--            <div class="bg-white rounded shadow h-48"></div>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--    <div class="grid md:grid-cols-3 gap-6">-->
-        <!--        <img src="/images/screens/screen-1.png" alt="Dashboard UI" class="rounded-md shadow-lg" />-->
-        <!--        <img src="/images/screens/screen-2.png" alt="Terminal" class="rounded-md shadow-lg" />-->
-        <!--        <img src="/images/screens/screen-3.png" alt="Monitoring UI" class="rounded-md shadow-lg" />-->
-        <!--    </div>-->
-        <!--</div>-->
     </section>
 
     <section class="bg-[#0e0e11] py-24 text-center text-white px-6 md:px-12">
