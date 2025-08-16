@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Bare metal server box -->
+    <rect x="6" y="14" width="52" height="36" rx="4" stroke-linejoin="round" />
+
+    <!-- Cooling slits -->
+    <path d="M12 20h8M12 26h8M12 32h8" />
+
+    <!-- Power button -->
+    <circle cx="52" cy="20" r="2" fill="currentColor" />
+
+    <!-- AI chip in center -->
+    <rect x="28" y="28" width="12" height="12" rx="2" stroke-linejoin="round" />
+
+    <!-- Neural circuit paths -->
+    <path d="M34 28v-4M34 40v4M28 34h-4M40 34h4" />
+
+    <!-- Brain-like squiggle inside chip -->
+    <path d="M30 30c.5-.5 1.5-.5 2 0s.5 1 .5 1.5-.5 1.5-1 2 1 1.5 2 1.5 2-.5 2-1.5-.5-2-.5-2.5.5-1.5 1.5-2" />
+</svg>

@@ -6,6 +6,10 @@ import SslIcon from '../assets/icons/lock-icon.svg';
 import UptimeIcon from '../assets/icons/uptime-icon.svg';
 import SsdIcon from '../assets/icons/ssd-icon.svg';
 import DDoSIcon from '../assets/icons/ddos-icon.svg';
+import HostingIcon from '../assets/icons/hosting-icon.svg';
+import VpsIcon from '../assets/icons/vps-icon.svg';
+import AppIcon from '../assets/icons/app-icon.svg';
+import BareMetalIcon from '../assets/icons/bare-icon.svg';
 ---
 
 
@@ -64,22 +68,22 @@ import DDoSIcon from '../assets/icons/ddos-icon.svg';
 
             <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
-                    <SslIcon class="fill-nst-coral w-10 h-10"/>
+                    <SslIcon class="text-nst-coral w-10 h-10"/>
                     <h3 class="font-semibold">Free SSL</h3>
                     <p class="text-sm text-white/80">Secure your site with automatic SSL certificates for all domains.</p>
                 </div>
                 <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
-                    <UptimeIcon class="stroke-nst-coral w-10 h-10"/>
+                    <UptimeIcon class="text-nst-coral w-10 h-10"/>
                     <h3 class="font-semibold">99.9% Uptime</h3>
                     <p class="text-sm text-white/80">Built on resilient infrastructure to keep your sites online 24/7.</p>
                 </div>
                 <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
-                    <SsdIcon class="fill-nst-coral w-10 h-10"/>
+                    <SsdIcon class="text-nst-coral w-10 h-10"/>
                     <h3 class="font-semibold">Blazing Fast</h3>
                     <p class="text-sm text-white/80">SSD storage and global CDN make your site lightning fast anywhere.</p>
                 </div>
                 <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
-                    <DDoSIcon class="fill-nst-coral w-10 h-10"/>
+                    <DDoSIcon class="text-nst-coral w-10 h-10"/>
                     <h3 class="font-semibold">DDoS Protection</h3>
                     <p class="text-sm text-white/80">Enterprise-grade security protects you from attacks and downtime.</p>
                 </div>
@@ -90,7 +94,7 @@ import DDoSIcon from '../assets/icons/ddos-icon.svg';
 
     <!-- Hosting Plans Section -->
     <section id="panel-compute" role="tabpanel" aria-labelledby="tab-compute" class="max-w-7xl mx-auto px-4 py-16">
-        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">Simple, Transparent Pricing.</h1>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Simple, Transparent Pricing.</h1>
         <p class="text-gray-400 mt-4">Pay only for what you use. No hidden fees, no surprises.</p>
         <div class="container mx-auto px-4 py-10">
             <div class="grid gap-6 mt-6 md:grid-cols-3
@@ -123,7 +127,7 @@ import DDoSIcon from '../assets/icons/ddos-icon.svg';
     <!-- ads cta to pricing -->
     <section class="py-20 px-6 bg-black/50 text-white text-center">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl font-bold mb-6">Fast, Secure, Scalable Hosting by NSTUDIOS</h1>
+            <h1 class="text-4xl font-bold mb-6">Fast, Secure, Scalable Hosting by NSTUDIOS</h1>
             <p class="text-lg text-white/80 mb-8">Launch and scale your site with modern infrastructure, developer tools, and world-class support.</p>
             <a href="/pricing" class="inline-block bg-nst-coral hover:bg-nst-coral/90 text-white font-semibold px-6 py-3 rounded-lg">View Plans</a>
         </div>
@@ -132,7 +136,7 @@ import DDoSIcon from '../assets/icons/ddos-icon.svg';
     <!-- What We Offer Section -->
     <section class="bg-black/60 text-white py-20 ">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-6 text-center">What We Offer</h2>
+            <h2 class="text-4xl font-bold mb-6 text-center">What We Offer</h2>
             <p class="max-w-2xl mx-auto text-center mb-12 text-white/80">
                 NSTUDIOS provides the tools, infrastructure, and support you need to build, scale, and grow. Whether
                 you're launching your first app or migrating enterprise workloads — we've got your back.
@@ -140,7 +144,8 @@ import DDoSIcon from '../assets/icons/ddos-icon.svg';
 
             <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <!--<div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">-->
-                <div class="group bg-white/5 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition cursor-pointer">
+                <div class="flex flex-col items-center group  bg-white/5 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition cursor-pointer">
+                    <HostingIcon class="text-nst-coral w-10 h-10 mb-2"/>
                     <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Web Hosting</h3>
                     <p class="text-sm mb-2 text-white/90">Secure, scalable platform for your apps.</p>
                     <ul class="text-xs text-white/70 list-disc list-inside">
@@ -150,19 +155,22 @@ import DDoSIcon from '../assets/icons/ddos-icon.svg';
                     </ul>
                 </div>
 
-                <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
+                <div class="flex flex-col items-center group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
+                    <VpsIcon class="text-nst-coral w-10 h-10 mb-2"/>
                     <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Managed VPS <span
                             class="text-xs italic text-gray-400">(Soon)</span></h3>
                     <p class="text-sm text-white/90">Root access, managed options, and performance.</p>
                 </div>
 
-                <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
+                <div class="flex flex-col items-center group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
+                    <AppIcon class="text-nst-coral w-10 h-10 mb-2"/>
                     <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">App Deploy <span
                             class="text-xs italic text-gray-400">(Soon)</span></h3>
                     <p class="text-sm text-white/90">Deploy Docker, Node.js, Python, Go with Git workflows.</p>
                 </div>
 
-                <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
+                <div class="flex flex-col items-center group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
+                    <BareMetalIcon class="text-nst-coral w-10 h-10 mb-2"/>
                     <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Bare Metal <span
                             class="text-xs italic text-gray-400">(Soon)</span></h3>
                     <p class="text-sm text-white/90">Raw compute for AI, analytics, and heavy workloads.</p>
