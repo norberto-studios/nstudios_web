@@ -1,0 +1,8 @@
+---
+const { name = "Most popular" } = Astro.props;
+---
+<p class="rounded-full bg-nst-coral px-2.5 py-1
+        text-xs/5 font-semibold
+        group-[:not([data-featured])]/tier:hidden">
+    {name}
+</p>

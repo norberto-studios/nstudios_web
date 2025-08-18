@@ -1,0 +1,56 @@
+{
+  "category": "Web Hosting",
+  "title": "Simple, Transparent Pricing.",
+  "description": "Flexible pricing plans for all types of users.",
+  "showToggleMonthlyYearly": false,
+  "badgeLabel": "Most popular",
+  "ctaLabel": "Buy plan",
+  "categoryId": 1,
+  "plans": [
+    {
+      "name": "Freelancer",
+      "subtitle": "For solo developers and personal projects",
+      "isFeatured": false,
+      "priceMonthly": 19,
+      "priceAnnually": 199,
+      "discountPercent": 20,
+      "priceUnit": "month",
+      "features": [
+        "Free SSL",
+        "Daily Backups",
+        "1 Website",
+        "10 GB SSD Storage"
+      ]
+    },
+    {
+      "name": "Startup",
+      "subtitle": "Best for new startups or growing projects",
+      "isFeatured": true,
+      "priceMonthly": 29,
+      "priceAnnually": 299,
+      "discountPercent": 20,
+      "priceUnit": "month",
+      "features": [
+        "Free SSL",
+        "Daily Backups",
+        "10 Websites",
+        "50 GB SSD Storage"
+      ]
+    },
+    {
+      "name": "Premium",
+      "subtitle": "Powerful plan for businesses and agencies",
+      "isFeatured": false,
+      "priceMonthly": 59,
+      "priceAnnually": 599,
+      "discountPercent": 20,
+      "priceUnit": "month",
+      "features": [
+        "Free SSL",
+        "Daily Backups",
+        "Unlimited Websites",
+        "200 GB SSD Storage"
+      ]
+    }
+  ]
+}
