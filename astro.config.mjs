@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import {defineConfig, passthroughImageService} from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -7,12 +7,14 @@ import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://norberto-studios.github.io',
-  base: '/',
+    site: 'https://norberto-studios.github.io',
+    base: '/',
 
-  vite: {
-    plugins: [tailwindcss()]
-  },
-  integrations: [svelte()]
-
+    vite: {
+        plugins: [tailwindcss()]
+    },
+    integrations: [svelte()],
+    image: {
+        service: passthroughImageService()
+    }
 });

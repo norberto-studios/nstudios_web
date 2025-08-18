@@ -8,13 +8,6 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "esbuild",
-      "@tailwindcss/oxide"
-    ]
-  },
   "dependencies": {
     "@astrojs/svelte": "^7.1.0",
     "@tailwindcss/vite": "^4.1.12",
