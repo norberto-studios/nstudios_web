@@ -1,64 +1,93 @@
 ---
 import CheckIcon from "../../assets/icons/check-icon.svg";
 import Badge from "../atoms/Badge.astro";
+import Button from "../atoms/Button.astro";
+
+type Frequency = "monthly" | "annually";
+
 const {
     name,
     subtitle,
     isFeatured = false,
     priceMonthly,
     priceAnnually,
+    discountPercent,
+    priceUnit,
+    ctaLabel,
+    badgeLabel,
+    features
 } = Astro.props;
+
+const isDiscountedPrice = discountPercent > 0;
+// const discountedPrice =  (price: number) => ( Math.floor(price * (1 - (discountPercent / 100))));
+const discountedPrice = (price: number, rate = 0.20) =>
+    (Math.round(price * (1 - rate) * 100) / 100).toFixed(2);
 ---
+
 
 <div {...(isFeatured && { 'data-featured': 'true' })}
      class="group/tier rounded-3xl p-8 ring-1   xl:p-10 data-[featured]:ring-2
-     bg-gray-800/50 ring-white/15 data-[featured]:ring-nst-coral">
+     border-white/10 bg-linear-to-t from-nst-card to-nst-card2 ring-white/15 data-[featured]:ring-nst-coral">
     <div class="flex items-center justify-between gap-x-4">
         <h3 id="tier-tier-freelancer"
-            class="text-lg/8 font-semibold text-gray-900
-            group-data-[featured]/tier:text-indigo-600
-            dark:text-white dark:group-data-[featured]/tier:text-indigo-400"
+            class="text-lg/8 font-semibold text-white
+            group-data-[featured]/tier:text-nst-coral"
         >{name}</h3>
-        <Badge />
+        <Badge label={badgeLabel}/>
     </div>
-    <p class="mt-4 text-sm/6 text-gray-600 dark:text-gray-300"
-        >{subtitle}</p>
-    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=monthly]:checked))]/tiers:hidden">
-        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$19</span>
-        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
-    </p>
-    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=annually]:checked))]/tiers:hidden">
-        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$199</span>
-        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
-    </p>
-    <button href="#" aria-describedby="tier-freelancer"
-            class="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-nst-coral
-                            ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2
-                            focus-visible:outline-offset-2 focus-visible:outline-nst-coral
-                            group-data-[featured]/tier:bg-nst-coral group-data-[featured]/tier:text-white group-data-[featured]/tier:shadow-sm
-                            group-data-[featured]/tier:ring-0 group-data-[featured]/tier:hover:bg-nst-coral
-                            dark:bg-white/10 dark:text-white dark:ring-1 dark:ring-inset dark:ring-white/5
-                            dark:hover:bg-white/20 dark:hover:ring-white/5 dark:focus-visible:outline-indigo-500
-                            dark:group-[:not([data-featured])]/tier:focus-visible:outline-white/75 dark:group-data-[featured]/tier:bg-indigo-500
-                            dark:group-data-[featured]/tier:shadow-none dark:group-data-[featured]/tier:hover:bg-indigo-400">
-        Buy plan
-    </button>
-    <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10 dark:text-gray-300">
-        <li class="flex gap-x-3">
-            <CheckIcon class="h-6 w-5 flex-none text-nst-coral"/>
-            5 products
-        </li>
-        <li class="flex gap-x-3">
-            <CheckIcon class="h-6 w-5 flex-none text-nst-coral"/>
-            Up to 1,000 subscribers
-        </li>
-        <li class="flex gap-x-3">
-            <CheckIcon class="h-6 w-5 flex-none text-nst-coral"/>
-            Basic analytics
-        </li>
-        <li class="flex gap-x-3">
-            <CheckIcon class="h-6 w-5 flex-none text-nst-coral"/>
-            48-hour support response time
-        </li>
-    </ul>
+    <p class="mt-4 text-sm/6 text-gray-300"
+    >{subtitle}</p>
+
+
+    <div class="mt-6 space-y-1 group/tiers" data-frequency={'monthly' /* 'monthly'|'annually' */}>
+        {/* Old price */}
+        {isDiscountedPrice && (
+                <p class="flex items-end gap-2">
+                    <del class="text-2xl leading-none tabular-nums font-semibold text-gray-400 line-through decoration-2 decoration-nst-coral">
+        <span class="price--monthly hidden group-[:has([name=frequency][value=monthly]:checked)]/tiers:inline">
+          ${priceMonthly}
+        </span>
+                        <span class="price--annually hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">
+          ${priceAnnually}
+        </span>
+                    </del>
+                    <span class="text-sm/6 font-semibold text-gray-400 whitespace-nowrap">/{priceUnit}</span>
+                    <span class="ml-2 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium text-nst-coral bg-nst-coral/15">Save 20%</span>
+                </p>
+        )}
+
+        {/* Current price */}
+        <p class="flex items-end gap-2">
+            <ins class="no-underline text-4xl leading-none tabular-nums font-semibold tracking-tight text-white whitespace-nowrap">
+      <span class="price--monthly hidden group-[:has([name=frequency][value=monthly]:checked)]/tiers:inline">
+        ${isDiscountedPrice ? discountedPrice(priceMonthly) : priceMonthly}
+      </span>
+                <span class="price--annually hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">
+        ${isDiscountedPrice ? discountedPrice(priceAnnually) : priceAnnually}
+      </span>
+            </ins>
+            <span class="text-sm/6 font-semibold text-gray-400 whitespace-nowrap">/{priceUnit}</span>
+        </p>
+
+        {/* Optional sublabel for billing */}
+        <p class="text-xs text-gray-400">
+    <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">
+      Billed ${((isDiscountedPrice ? discountedPrice(priceAnnually) : priceAnnually) * 12).toLocaleString(undefined, {minimumFractionDigits: 2})}
+        /year
+    </span>
+        </p>
+    </div>
+
+    <Button label={ctaLabel} />
+
+    {features &&
+            <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10 dark:text-gray-300">
+                {features.map((feature: string) => (
+                        <li class="flex gap-x-3">
+                            <CheckIcon class="h-6 w-5 flex-none text-nst-coral"/>
+                            {feature}
+                        </li>
+                ))}
+            </ul>
+    }
 </div>

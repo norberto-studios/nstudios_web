@@ -11,3 +11,6 @@ Plans Json
 | Call-to-action button text           | `ctaLabel`                  | e.g. `"Buy plan"`                                              |
 | Feature list                         | `features`                  | array of strings                                               |
 | Border / highlight color (optional)  | `highlightColor`            | optional, in case you want to color-code featured plans        |
+
+![img.png](img.png)
+
