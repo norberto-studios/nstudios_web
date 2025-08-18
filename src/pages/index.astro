@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+
+import { Image } from 'astro:assets';
+import testImage from '../assets/images/test-image.png'
+import atc2Image from '../assets/images/atc2.png'
 import Card1 from "../components/atoms/Card.astro";
 
 import SslIcon from '../assets/icons/lock-icon.svg';
@@ -145,7 +148,7 @@ const webHosting = priceData
                     <a href="/pricing" class="inline-block bg-nst-coral hover:bg-nst-coral/90 text-white font-semibold px-6 py-3 rounded-lg">View Plans</a>
                 </div>
                 <div class="relative">
-                    <img src="atc2.png" alt="Web Hosting Preview"
+                    <Image src={atc2Image} alt="Web Hosting Preview"
                          class="rounded-xl shadow-lg border border-white/10"/>
                     <!--<div class="absolute top-4 right-4 bg-green-500 text-xs text-white font-semibold px-2 py-1 rounded">-->
                     <!--    SSL Active-->
@@ -216,7 +219,7 @@ const webHosting = priceData
                         Scale</a>
                 </div>
                 <div class="relative">
-                    <img src="test-image.png" alt="Web Hosting Preview"
+                    <Image src={testImage} alt="Web Hosting Preview"
                          class="rounded-xl shadow-lg border border-white/10"/>
                     <!--<div class="absolute top-4 right-4 bg-green-500 text-xs text-white font-semibold px-2 py-1 rounded">-->
                     <!--    SSL Active-->
