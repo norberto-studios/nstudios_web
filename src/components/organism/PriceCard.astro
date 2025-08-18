@@ -1,0 +1,120 @@
+---
+import CheckIcon from "../../assets/icons/check-icon.svg";
+import Badge from "../atoms/Badge.astro";
+import Button from "../atoms/Button.astro";
+
+const {
+    name,
+    subtitle,
+    isFeatured = false,
+    priceMonthly,        // monthly rate (per month)
+    priceAnnually,       // annual plan shown as monthly-equivalent (per month)
+    discountPercent,     // e.g., 20 for 20%
+    priceUnit,           // "month" or "mo"
+    ctaLabel,
+    badgeLabel,
+    features
+} = Astro.props;
+
+const isDiscountedPrice = discountPercent > 0;
+
+const round2 = (n: number) => Math.round(n * 100) / 100;
+const applyDiscount = (n: number) =>
+    isDiscountedPrice ? round2(n * (1 - discountPercent / 100)) : n;
+
+// final “visible” prices (per month for both rows)
+const monthlyFinal = applyDiscount(priceMonthly);
+const annualMonthlyEqFinal = applyDiscount(priceAnnually);
+
+// full annual charge (based on annual monthly-equivalent)
+const billedYearlyFinal = round2(annualMonthlyEqFinal * 12);
+
+// savings vs monthly, shown only when annually is selected
+const savePerMonth = round2(monthlyFinal - annualMonthlyEqFinal);
+const savePercent = monthlyFinal > 0 ? Math.round((savePerMonth / monthlyFinal) * 100) : 0;
+
+// small formatter for $ amounts (keeps your $ prefix style)
+const money = (n: number) => n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+---
+
+
+<div {...(isFeatured && { 'data-featured': 'true' })}
+     class="group/tier rounded-3xl p-8 ring-1   xl:p-10 data-[featured]:ring-2
+     border-white/10 bg-linear-to-t from-nst-card to-nst-card2 ring-white/15 data-[featured]:ring-nst-coral">
+
+    <div class="flex items-center justify-between gap-x-4">
+        <h3 id="tier-tier-freelancer"
+            class="text-lg/8 font-semibold text-white group-data-[featured]/tier:text-nst-coral">
+            {name}
+        </h3>
+        <Badge label={badgeLabel}/>
+    </div>
+
+
+    <p class="mt-4 text-sm/6 text-gray-300">{subtitle}</p>
+
+    <div class="mt-6 space-y-1 group/tiers" data-frequency={'monthly'}>
+        <!-- Old price (struck) -->
+        {isDiscountedPrice && (
+                <p class="flex items-end gap-2">
+                    <del class="text-2xl leading-none tabular-nums font-semibold text-gray-400 line-through decoration-2 decoration-nst-coral">
+                        <!-- monthly original -->
+                        <span class="hidden group-[:has([name=frequency][value=monthly]:checked)]/tiers:inline">
+            ${money(priceMonthly)}
+          </span>
+                        <!-- annual original (monthly-equivalent) -->
+                        <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">
+            ${money(priceAnnually)}
+          </span>
+                    </del>
+                    <span class="text-sm/6 font-semibold text-gray-400 whitespace-nowrap">/{priceUnit}</span>
+                    <span class="ml-2 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium text-nst-coral bg-nst-coral/15">
+          Save {discountPercent}%
+        </span>
+                </p>
+        )}
+
+        <!-- Current price -->
+        <p class="flex items-end gap-2">
+            <ins class="no-underline text-4xl leading-none tabular-nums font-semibold tracking-tight text-white whitespace-nowrap">
+                <!-- monthly current -->
+                <span class="hidden group-[:has([name=frequency][value=monthly]:checked)]/tiers:inline">
+          ${money(monthlyFinal)}
+        </span>
+                <!-- annual current (monthly-equivalent) -->
+                <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">
+          ${money(annualMonthlyEqFinal)}
+        </span>
+            </ins>
+            <span class="text-sm/6 font-semibold text-gray-400 whitespace-nowrap">/{priceUnit}</span>
+
+            {savePerMonth > 0 && (
+                    <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline-flex
+                     items-center gap-1 ml-2 shrink-0 rounded-full px-2 py-0.5
+                     text-xs font-medium text-nst-coral bg-nst-coral/15">
+          Save ${money(savePerMonth)}/mo ({savePercent}%)
+        </span>
+            )}
+        </p>
+
+        <!-- Annual sublabel -->
+        <p class="text-xs text-gray-400">
+      <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">
+        Billed ${money(billedYearlyFinal)} /year
+      </span>
+        </p>
+    </div>
+
+    <Button label={ctaLabel} />
+
+    {features && (
+            <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10 dark:text-gray-300">
+                {features.map((feature: string) => (
+                        <li class="flex gap-x-3">
+                            <CheckIcon class="h-6 w-5 flex-none text-nst-coral" aria-hidden="true" />
+                            {feature}
+                        </li>
+                ))}
+            </ul>
+    )}
+</div>

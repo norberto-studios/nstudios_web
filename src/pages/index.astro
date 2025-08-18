@@ -13,7 +13,8 @@ import AppIcon from '../assets/icons/app-icon.svg';
 import BareMetalIcon from '../assets/icons/bare-icon.svg';
 
 import priceData from "../../data/web-hosting-plans.json"
-import PriceCard from "../components/molecules/PriceCard.astro";
+import PriceCard from "../components/organism/PriceCard.astro";
+import SegmentedControl from "../components/molecules/SegmentedControl.astro";
 
 const webHosting = priceData
 ---
@@ -95,25 +96,12 @@ const webHosting = priceData
 
     <!-- Hosting Plans Section -->
     <section id="panel-compute" role="tabpanel" aria-labelledby="tab-compute" class="max-w-7xl mx-auto px-4 py-16">
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Simple, Transparent Pricing.</h1>
-        <p class="text-gray-400 mt-4">Pay only for what you use. No hidden fees, no surprises.</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">{webHosting.title}</h1>
+        <p class="text-gray-400 mt-4">{webHosting.description}</p>
 
         <form class="group/tiers ">
             <div class="container mx-auto px-4 ">
-            <div class="mt-16 flex justify-center">
-                <fieldset aria-label="Payment frequency">
-                    <div class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs/5 font-semibold ring-1 ring-inset ring-gray-200 dark:ring-white/10">
-                        <label class="group relative rounded-full px-2.5 py-1 has-[:checked]:bg-nst-coral ">
-                            <input type="radio" name="frequency" value="monthly" checked class="absolute inset-0 appearance-none rounded-full" />
-                            <span class="text-gray-500 group-has-[:checked]:text-white dark:text-gray-400">Monthly</span>
-                        </label>
-                        <label class="group relative rounded-full px-2.5 py-1 has-[:checked]:bg-nst-coral">
-                            <input type="radio" name="frequency" value="annually" class="absolute inset-0 appearance-none rounded-full" />
-                            <span class="text-gray-500 group-has-[:checked]:text-white dark:text-gray-400">Annually</span>
-                        </label>
-                    </div>
-                </fieldset>
-            </div>
+                <SegmentedControl/>
 
             <!--<div class="grid gap-6 mt-6 md:grid-cols-3">-->
             <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -132,19 +120,6 @@ const webHosting = priceData
                         />
                 ))}
 
-                <Card hover
-                      title="Small VM"
-                      price="15"
-                      items={["2 vCPU", "4 GB RAM", "80 GB SSD"]}/>
-                <Card title="Medium VM" hover
-                      price="40"
-                      items={["4 vCPU", "8 GB RAM", "160 GB SSD"]}/>
-                <Card1
-                        darkGradiant
-                        canHover
-                        title="Large VM"
-                      price="90"
-                      items={["8 vCPU", "16 GB RAM", "320 GB SSD"]}/>
             </div>
         </div>
         </form>

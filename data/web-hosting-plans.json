@@ -1,7 +1,7 @@
 {
   "category": "Web Hosting",
   "title": "Simple, Transparent Pricing.",
-  "description": "Flexible pricing plans for all types of users.",
+  "description": "Pay only for what you use. No hidden fees, no surprises.",
   "showToggleMonthlyYearly": false,
   "badgeLabel": "Most popular",
   "ctaLabel": "Buy plan",
@@ -13,7 +13,7 @@
       "isFeatured": false,
       "priceMonthly": 19.99,
       "priceAnnually": 17.99,
-      "discountPercent": 0,
+      "discountPercent": 20,
       "priceUnit": "month",
       "features": [
         "Free SSL",
@@ -28,7 +28,7 @@
       "isFeatured": true,
       "priceMonthly": 29.99,
       "priceAnnually": 27.99,
-      "discountPercent": 20,
+      "discountPercent": 25,
       "priceUnit": "month",
       "features": [
         "Free SSL",
@@ -43,7 +43,7 @@
       "isFeatured": false,
       "priceMonthly": 59.99,
       "priceAnnually": 57.99,
-      "discountPercent": 20,
+      "discountPercent": 10,
       "priceUnit": "month",
       "features": [
         "Free SSL",
