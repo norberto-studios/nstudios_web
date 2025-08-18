@@ -1,8 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
----
 
+import { Image } from 'astro:assets';
+import testImage from '../assets/images/test-image.png'
+import atc2Image from '../assets/images/atc2.png'
+import Card1 from "../components/atoms/Card.astro";
+
+import SslIcon from '../assets/icons/lock-icon.svg';
+import UptimeIcon from '../assets/icons/uptime-icon.svg';
+import SsdIcon from '../assets/icons/ssd-icon.svg';
+import DDoSIcon from '../assets/icons/ddos-icon.svg';
+import HostingIcon from '../assets/icons/hosting-icon.svg';
+import VpsIcon from '../assets/icons/vps-icon.svg';
+import AppIcon from '../assets/icons/app-icon.svg';
+import BareMetalIcon from '../assets/icons/bare-icon.svg';
+
+import priceData from "../../data/web-hosting-plans.json"
+import PriceCard from "../components/organism/PriceCard.astro";
+import SegmentedControl from "../components/molecules/SegmentedControl.astro";
+
+const webHosting = priceData
+---
 
 <Layout>
     <!-- Homepage for NSTUDIOS -->
@@ -11,7 +29,7 @@ import Card from "../components/Card.astro";
             <div class="absolute -top-1/2 left-1/2 w-[1000px] h-[1000px] bg-nst-coral rounded-full opacity-20 blur-3xl transform -translate-x-1/2"></div>
         </div>
 
-        <div class="relative z-10 container mx-auto text-center px-4 py-24">
+        <div class="relative z-10 container mx-auto text-center px-4 pt-24 pb-12">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Powerful Compute.<br/>Personalized Cloud.</h1>
             <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
                 High-performance infrastructure for startups, developers, and enterprises — hosted and managed by
@@ -49,78 +67,88 @@ import Card from "../components/Card.astro";
         </div>
     </section>
 
+    <!-- Why Choose Us Section -->
+    <section class="py-20 px-6 bg-black text-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Why Choose NSTUDIOS Hosting</h2>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
+                    <SslIcon class="text-nst-coral w-10 h-10"/>
+                    <h3 class="font-semibold">Free SSL</h3>
+                    <p class="text-sm text-white/80">Secure your site with automatic SSL certificates for all domains.</p>
+                </div>
+                <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
+                    <UptimeIcon class="text-nst-coral w-10 h-10"/>
+                    <h3 class="font-semibold">99.9% Uptime</h3>
+                    <p class="text-sm text-white/80">Built on resilient infrastructure to keep your sites online 24/7.</p>
+                </div>
+                <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
+                    <SsdIcon class="text-nst-coral w-10 h-10"/>
+                    <h3 class="font-semibold">Blazing Fast</h3>
+                    <p class="text-sm text-white/80">SSD storage and global CDN make your site lightning fast anywhere.</p>
+                </div>
+                <div class="flex flex-col items-center gap-4 bg-white/5 p-6 rounded-xl border border-white/10 shadow">
+                    <DDoSIcon class="text-nst-coral w-10 h-10"/>
+                    <h3 class="font-semibold">DDoS Protection</h3>
+                    <p class="text-sm text-white/80">Enterprise-grade security protects you from attacks and downtime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosting Plans Section -->
     <section id="panel-compute" role="tabpanel" aria-labelledby="tab-compute" class="max-w-7xl mx-auto px-4 py-16">
-        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">Simple, Transparent Pricing.</h1>
-        <p class="text-gray-400 mt-4">Pay only for what you use. No hidden fees, no surprises.</p>
-        <div class="container mx-auto px-4 py-10">
-            <div class="grid gap-6 mt-6 md:grid-cols-3
-">
-                <Card hover
-                        title="Small VM"
-                      price="15"
-                      items={["2 vCPU", "4 GB RAM", "80 GB SSD"]}/>
-                <Card title="Medium VM" hover
-                      price="40"
-                      items={["4 vCPU", "8 GB RAM", "160 GB SSD"]}/>
-                <Card title="Large VM" hover
-                      price="90"
-                      items={["8 vCPU", "16 GB RAM", "320 GB SSD"]}/>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">{webHosting.title}</h1>
+        <p class="text-gray-400 mt-4">{webHosting.description}</p>
+
+        <form class="group/tiers ">
+            <div class="container mx-auto px-4 ">
+                <SegmentedControl/>
+
+            <!--<div class="grid gap-6 mt-6 md:grid-cols-3">-->
+            <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                {webHosting["plans"].map((plan) => (
+                        <PriceCard
+                                name={plan.name}
+                                subtitle={plan.subtitle}
+                                isFeatured={plan.isFeatured}
+                                priceMonthly={plan.priceMonthly}
+                                priceAnnually={plan.priceAnnually}
+                                discountPercent={plan.discountPercent}
+                                priceUnit={plan.priceUnit}
+                                ctaLabel={webHosting.ctaLabel}
+                                badgeLabel={webHosting.badgeLabel}
+                                features={plan.features}
+                        />
+                ))}
+
             </div>
         </div>
+        </form>
     </section>
 
-    <section class="bg-black/60 text-white py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-6 text-center">What We Offer</h2>
-            <p class="max-w-2xl mx-auto text-center mb-12 text-white/80">
-                NSTUDIOS provides the tools, infrastructure, and support you need to build, scale, and grow. Whether
-                you're launching your first app or migrating enterprise workloads — we've got your back.
+    <!-- About Section -->
+    <section class="py-20 px-6 bg-black text-white">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Built for Creators, Developers & Startups</h2>
+            <p class="text-white/80 text-lg max-w-3xl mx-auto">
+                NSTUDIOS LLC is a modern cloud hosting provider and full-stack development studio. We specialize in high-performance, developer-friendly infrastructure with world-class support. Our mission is to help makers, creators, and startups launch and scale.
             </p>
-
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Web Hosting</h3>
-                    <p class="text-sm mb-2 text-white/90">Secure, scalable platform for your apps.</p>
-                    <ul class="text-xs text-white/70 list-disc list-inside">
-                        <li>WordPress & static sites</li>
-                        <li>CDN, SSL, backups</li>
-                        <li>Git, CLI, staging tools</li>
-                    </ul>
-                </div>
-
-                <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Managed VPS <span
-                            class="text-xs italic text-gray-400">(Soon)</span></h3>
-                    <p class="text-sm text-white/90">Root access, managed options, and performance.</p>
-                </div>
-
-                <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">App Deploy <span
-                            class="text-xs italic text-gray-400">(Soon)</span></h3>
-                    <p class="text-sm text-white/90">Deploy Docker, Node.js, Python, Go with Git workflows.</p>
-                </div>
-
-                <div class="group bg-white/10 p-5 rounded-xl border border-white/10 shadow-md backdrop-blur-sm hover:border-nst-coral hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold mb-2 text-white group-hover:text-nst-coral">Bare Metal <span
-                            class="text-xs italic text-gray-400">(Soon)</span></h3>
-                    <p class="text-sm text-white/90">Raw compute for AI, analytics, and heavy workloads.</p>
-                </div>
-            </div>
         </div>
     </section>
 
+    <!-- Ads CTA to pricing -->
     <section class=" py-16 px-6 md:px-12">
-        <div class="mt-16 bg-gradient-to-br from-nst-coral/10 to-white/5 p-8 rounded-2xl border border-nst-coral/30 shadow-xl max-w-5xl mx-auto">
+        <div class="  bg-gradient-to-br from-nst-coral/10 to-white/5 p-8 rounded-2xl border border-nst-coral/30 shadow-xl max-w-5xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-8">
-                <div class="text-left">
-                    <h3 class="text-2xl font-bold mb-2">Web Hosting</h3>
-                    <p class="text-gray-300 mb-4">Boost your online visibility and give your business a good name.
-                        Secure your space on the web.</p>
-                    <a href="#" class="inline-block bg-nst-coral text-white px-5 py-2 rounded font-semibold">Host and
-                        Scale</a>
+                <div class="md:text-left text-center">
+                    <h3 class="text-2xl font-bold mb-2">Fast, Secure, Scalable Hosting by NSTUDIOS</h3>
+                    <p class="text-gray-300 mb-4">Launch and scale your site with modern infrastructure, developer tools, and world-class support.</p>
+                    <a href="/pricing" class="inline-block bg-nst-coral hover:bg-nst-coral/90 text-white font-semibold px-6 py-3 rounded-lg">View Plans</a>
                 </div>
                 <div class="relative">
-                    <img src="test-image.png" alt="Web Hosting Preview"
+                    <Image src={atc2Image} alt="Web Hosting Preview"
                          class="rounded-xl shadow-lg border border-white/10"/>
                     <!--<div class="absolute top-4 right-4 bg-green-500 text-xs text-white font-semibold px-2 py-1 rounded">-->
                     <!--    SSL Active-->
@@ -130,6 +158,78 @@ import Card from "../components/Card.astro";
         </div>
     </section>
 
+    <!-- What We Offer Section -->
+    <section class="bg-black/60 text-white py-20 ">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-6 text-center">What We Offer</h2>
+            <p class="max-w-2xl mx-auto text-center mb-12 text-white/80">
+                NSTUDIOS provides the tools, infrastructure, and support you need to build, scale, and grow. Whether
+                you're launching your first app or migrating enterprise workloads — we've got your back.
+            </p>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+                <Card1 canHover
+                       Icon={HostingIcon}
+                       title="Web Hosting"
+                       description="Secure, scalable platform for your apps."
+                       items={["WordPress & static sites", "CDN, SSL, backups", "Git, CLI, staging tools"]}
+                />
+                <Card1 canHover
+                       Icon={VpsIcon}
+                       title="Managed VPS"
+                       titleNote="(soon)"
+                       description="Root access, managed options, and performance."
+                />
+                <Card1 canHover
+                       Icon={AppIcon}
+                       title="App Deploy"
+                       titleNote="(soon)"
+                       description="Deploy Docker, Node.js, Python, Go with Git workflows."
+                />
+                <Card1 canHover
+                       Icon={BareMetalIcon}
+                       title="Bare Metal"
+                       titleNote="(soon)"
+                       description="Raw compute for AI, analytics, and heavy workloads."
+                />
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 bg-nst-glass text-white backdrop-blur-xl">
+        <div class="max-w-4xl mx-auto text-center ">
+            <h2 class="text-3xl font-bold mb-8">Our Clients Love Us</h2>
+            <blockquote class="italic text-white/90 text-xl">“NSTUDIOS helped me launch in 1 week — it was seamless. The team is incredibly responsive and knowledgeable.”</blockquote>
+            <p class="mt-4 text-sm text-white/60">– A Happy Founder</p>
+        </div>
+    </section>
+
+    <!-- Ad CTA -->
+    <section class=" py-16 px-6 md:px-12">
+        <div class=" bg-gradient-to-br from-nst-coral/10 to-white/5 p-8 rounded-2xl border border-nst-coral/30 shadow-xl max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 items-center gap-8">
+                <div class="md:text-left text-center">
+                    <h3 class="text-2xl font-bold mb-2">Web Hosting</h3>
+                    <p class="text-gray-300 mb-4">Boost your online visibility and give your business a good name.
+                        Secure your space on the web.</p>
+                    <a href="/pricing" class="inline-block bg-nst-coral hover:bg-nst-coral/90 text-white font-semibold px-6 py-3 rounded-lg">Host and
+                        Scale</a>
+                </div>
+                <div class="relative">
+                    <Image src={testImage} alt="Web Hosting Preview"
+                         class="rounded-xl shadow-lg border border-white/10"/>
+                    <!--<div class="absolute top-4 right-4 bg-green-500 text-xs text-white font-semibold px-2 py-1 rounded">-->
+                    <!--    SSL Active-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
     <section class="bg-[#0e0e11] py-24 text-center text-white px-6 md:px-12">
         <h2 class="text-3xl md:text-4xl font-bold mb-12">Your cloud, your way – let’s get you online.</h2>
         <a href="#" class="bg-nst-coral text-black px-8 py-4 rounded-md text-xl font-bold shadow-md">

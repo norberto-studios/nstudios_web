@@ -13,6 +13,7 @@ tabs.forEach(t => t.addEventListener('click', () => {
 
     tabs.forEach(x => x.setAttribute('aria-selected','false'));
     t.setAttribute('aria-selected','true');
+
     // tabs.forEach(x => {
     //     x.setAttribute('aria-selected', 'false');
     //     x.classList.remove('bg-[#1a1b21]', 'text-white', 'shadow-[inset_0_0_0_1px_#2b2d35]');

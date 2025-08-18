@@ -4,125 +4,239 @@ import "../styles/test.css";
 ---
 
 <Layout>
+    <form class="group/tiers bg-white py-24 sm:py-32 dark:bg-gray-900">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-4xl text-center">
+                <h2 class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Pricing</h2>
+                <p class="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl dark:text-white">Pricing that grows with you</p>
+            </div>
+            <p class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8 dark:text-gray-400">Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.</p>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="eyebrow">Pricing</div>
-        <h1>Simple, Transparent<br/>Pricing.</h1>
-        <p class="sub">Pay only for what you use. No hidden fees, no surprises.</p>
 
-        <!-- Tabs -->
-        <div class="tabs" role="tablist" aria-label="Pricing Tabs">
-            <button class="tab" role="tab" aria-selected="true" aria-controls="panel-compute" id="tab-compute">Compute
-            </button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-storage" id="tab-storage">
-                Storage
-            </button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-networking" id="tab-networking">
-                Networking
-            </button>
-        </div>
-    </section>
-
-    <!-- Panels -->
-    <section id="panel-compute" role="tabpanel" aria-labelledby="tab-compute">
-        <div class="grid">
-            <!-- Small -->
-            <article class="card">
-                <h3>Small VM</h3>
-                <div class="muted specs">
-                    2 vCPU<br/>
-                    4 GB RAM<br/>
-                    80 GB SSD
+            <div class="mt-16 flex justify-center">
+                <fieldset aria-label="Payment frequency">
+                    <div class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs/5 font-semibold ring-1 ring-inset ring-gray-200 dark:ring-white/10">
+                        <label class="group relative rounded-full px-2.5 py-1 has-[:checked]:bg-indigo-600 dark:has-[:checked]:bg-indigo-500">
+                            <input type="radio" name="frequency" value="monthly" checked class="absolute inset-0 appearance-none rounded-full" />
+                            <span class="text-gray-500 group-has-[:checked]:text-white dark:text-gray-400">Monthly</span>
+                        </label>
+                        <label class="group relative rounded-full px-2.5 py-1 has-[:checked]:bg-indigo-600 dark:has-[:checked]:bg-indigo-500">
+                            <input type="radio" name="frequency" value="annually" class="absolute inset-0 appearance-none rounded-full" />
+                            <span class="text-gray-500 group-has-[:checked]:text-white dark:text-gray-400">Annually</span>
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                <div class="group/tier rounded-3xl p-8 ring-1 ring-gray-200 data-[featured]:ring-2 data-[featured]:ring-indigo-600 xl:p-10 dark:bg-gray-800/50 dark:ring-white/15 dark:data-[featured]:ring-indigo-400">
+                    <div class="flex items-center justify-between gap-x-4">
+                        <h3 id="tier-tier-freelancer" class="text-lg/8 font-semibold text-gray-900 group-data-[featured]/tier:text-indigo-600 dark:text-white dark:group-data-[featured]/tier:text-indigo-400">Freelancer</h3>
+                        <p class="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600 group-[:not([data-featured])]/tier:hidden dark:bg-indigo-500 dark:text-white">Most popular</p>
+                    </div>
+                    <p class="mt-4 text-sm/6 text-gray-600 dark:text-gray-300">The essentials to provide your best work for clients.</p>
+                    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=monthly]:checked))]/tiers:hidden">
+                        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$19</span>
+                        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
+                    </p>
+                    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=annually]:checked))]/tiers:hidden">
+                        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$199</span>
+                        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
+                    </p>
+                    <button href="#" aria-describedby="tier-freelancer" class="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 group-data-[featured]/tier:bg-indigo-600 group-data-[featured]/tier:text-white group-data-[featured]/tier:shadow-sm group-data-[featured]/tier:ring-0 group-data-[featured]/tier:hover:bg-indigo-500 dark:bg-white/10 dark:text-white dark:ring-1 dark:ring-inset dark:ring-white/5 dark:hover:bg-white/20 dark:hover:ring-white/5 dark:focus-visible:outline-indigo-500 dark:group-[:not([data-featured])]/tier:focus-visible:outline-white/75 dark:group-data-[featured]/tier:bg-indigo-500 dark:group-data-[featured]/tier:shadow-none dark:group-data-[featured]/tier:hover:bg-indigo-400">Buy plan</button>
+                    <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10 dark:text-gray-300">
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            5 products
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Up to 1,000 subscribers
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Basic analytics
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            48-hour support response time
+                        </li>
+                    </ul>
                 </div>
-                <div class="price">$15<span class="muted" style="font-weight:600">/mo</span></div>
-            </article>
-
-            <!-- Medium -->
-            <article class="card">
-                <h3>Medium VM</h3>
-                <div class="muted specs">
-                    4 vCPU<br/>
-                    8 GB RAM<br/>
-                    160 GB SSD
+                <div data-featured="true" class="group/tier rounded-3xl p-8 ring-1 ring-gray-200 data-[featured]:ring-2 data-[featured]:ring-indigo-600 xl:p-10 dark:bg-gray-800/50 dark:ring-white/15 dark:data-[featured]:ring-indigo-400">
+                    <div class="flex items-center justify-between gap-x-4">
+                        <h3 id="tier-tier-startup" class="text-lg/8 font-semibold text-gray-900 group-data-[featured]/tier:text-indigo-600 dark:text-white dark:group-data-[featured]/tier:text-indigo-400">Startup</h3>
+                        <p class="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600 group-[:not([data-featured])]/tier:hidden dark:bg-indigo-500 dark:text-white">Most popular</p>
+                    </div>
+                    <p class="mt-4 text-sm/6 text-gray-600 dark:text-gray-300">A plan that scales with your rapidly growing business.</p>
+                    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=monthly]:checked))]/tiers:hidden">
+                        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$29</span>
+                        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
+                    </p>
+                    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=annually]:checked))]/tiers:hidden">
+                        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$299</span>
+                        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
+                    </p>
+                    <button href="#" aria-describedby="tier-startup" class="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 group-data-[featured]/tier:bg-indigo-600 group-data-[featured]/tier:text-white group-data-[featured]/tier:shadow-sm group-data-[featured]/tier:ring-0 group-data-[featured]/tier:hover:bg-indigo-500 dark:bg-white/10 dark:text-white dark:ring-1 dark:ring-inset dark:ring-white/5 dark:hover:bg-white/20 dark:hover:ring-white/5 dark:focus-visible:outline-indigo-500 dark:group-[:not([data-featured])]/tier:focus-visible:outline-white/75 dark:group-data-[featured]/tier:bg-indigo-500 dark:group-data-[featured]/tier:shadow-none dark:group-data-[featured]/tier:hover:bg-indigo-400">Buy plan</button>
+                    <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10 dark:text-gray-300">
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            25 products
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Up to 10,000 subscribers
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Advanced analytics
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            24-hour support response time
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Marketing automations
+                        </li>
+                    </ul>
                 </div>
-                <div class="price">$40<span class="muted" style="font-weight:600">/mo</span></div>
-            </article>
+                <div class="group/tier rounded-3xl p-8 ring-1 ring-gray-200 data-[featured]:ring-2 data-[featured]:ring-indigo-600 xl:p-10 dark:bg-gray-800/50 dark:ring-white/15 dark:data-[featured]:ring-indigo-400">
+                    <div class="flex items-center justify-between gap-x-4">
+                        <h3 id="tier-tier-enterprise" class="text-lg/8 font-semibold text-gray-900 group-data-[featured]/tier:text-indigo-600 dark:text-white dark:group-data-[featured]/tier:text-indigo-400">Enterprise</h3>
+                        <p class="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600 group-[:not([data-featured])]/tier:hidden dark:bg-indigo-500 dark:text-white">Most popular</p>
+                    </div>
+                    <p class="mt-4 text-sm/6 text-gray-600 dark:text-gray-300">Dedicated support and infrastructure for your company.</p>
+                    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=monthly]:checked))]/tiers:hidden">
+                        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$59</span>
+                        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
+                    </p>
+                    <p class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=annually]:checked))]/tiers:hidden">
+                        <span class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">$599</span>
+                        <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
+                    </p>
 
-            <!-- Large -->
-            <article class="card">
-                <h3>Large VM</h3>
-                <div class="muted specs">
-                    8 vCPU<br/>
-                    16 GB RAM<br/>
-                    320 GB SSD
+
+                    {/* Ancestor wrapping the radio buttons + this block */}
+                    <!--<div class="group/tiers">-->
+                    <!--    {/* Price block (one block for both frequencies) */}-->
+                    <!--    <div class="mt-6 space-y-1">-->
+                    <!--        {/* Original price (only when discounted) */}-->
+                    <!--        <p class={`flex items-end gap-2 ${isDiscountedPrice ? '' : 'hidden'}`}>-->
+                    <!--            <del-->
+                    <!--                    class="text-2xl leading-none tabular-nums font-semibold tracking-tight-->
+                    <!--               text-gray-400 line-through decoration-2 decoration-nst-coral"-->
+                    <!--            >-->
+                    <!--                {/* Monthly original */}-->
+                    <!--                <span class="hidden group-[:has([name=frequency][value=monthly]:checked)]/tiers:inline">-->
+                    <!--      ${priceMonthly}-->
+                    <!--    </span>-->
+                    <!--                {/* Annual original */}-->
+                    <!--                <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">-->
+                    <!--      ${priceAnnually}-->
+                    <!--    </span>-->
+                    <!--            </del>-->
+
+                    <!--            <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">-->
+                    <!--    /{priceUnit}-->
+                    <!--  </span>-->
+
+                    <!--            <span-->
+                    <!--                    class="ml-2 rounded-full px-2 py-0.5 text-xs font-medium-->
+                    <!--               text-nst-coral bg-nst-coral/15"-->
+                    <!--                    aria-hidden="true"-->
+                    <!--            >-->
+                    <!--    Save 20%-->
+                    <!--  </span>-->
+                    <!--        </p>-->
+
+                    <!--        {/* Current price (discounted or normal) */}-->
+                    <!--        <p class="flex items-end gap-2">-->
+                    <!--            <ins class="no-underline text-4xl leading-none tabular-nums font-semibold tracking-tight text-white">-->
+                    <!--                {/* Monthly current */}-->
+                    <!--                <span class="hidden group-[:has([name=frequency][value=monthly]:checked)]/tiers:inline">-->
+                    <!--      ${isDiscountedPrice ? discountedPrice(priceMonthly) : priceMonthly}-->
+                    <!--    </span>-->
+                    <!--                {/* Annual current */}-->
+                    <!--                <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">-->
+                    <!--      ${isDiscountedPrice ? discountedPrice(priceAnnually) : priceAnnually}-->
+                    <!--    </span>-->
+                    <!--            </ins>-->
+
+                    <!--            <span class="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">-->
+                    <!--    /{priceUnit}-->
+                    <!--  </span>-->
+                    <!--        </p>-->
+                    <!--    </div>-->
+                    <!--    -->
+                    <!--</div>-->
+                    <button href="#" aria-describedby="tier-enterprise"
+                            class="mt-6 block w-full rounded-md px-3 py-2 text-center
+                            text-sm/6 font-semibold text-indigo-600 ring-1 ring-inset
+                             ring-indigo-200 hover:ring-indigo-300
+                             focus-visible:outline focus-visible:outline-2
+                             focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+                             group-data-[featured]/tier:bg-indigo-600 group-data-[featured]/tier:text-white
+                             group-data-[featured]/tier:shadow-sm group-data-[featured]/tier:ring-0
+                             group-data-[featured]/tier:hover:bg-indigo-500 dark:bg-white/10
+                             dark:text-white dark:ring-1 dark:ring-inset dark:ring-white/5 dark:hover:bg-white/20 dark:hover:ring-white/5 dark:focus-visible:outline-indigo-500 dark:group-[:not([data-featured])]/tier:focus-visible:outline-white/75 dark:group-data-[featured]/tier:bg-indigo-500 dark:group-data-[featured]/tier:shadow-none dark:group-data-[featured]/tier:hover:bg-indigo-400">Buy plan</button>
+                    <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10 dark:text-gray-300">
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Unlimited products
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Unlimited subscribers
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Advanced analytics
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            1-hour, dedicated support response time
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Marketing automations
+                        </li>
+                        <li class="flex gap-x-3">
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400">
+                                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            Custom reporting tools
+                        </li>
+                    </ul>
                 </div>
-                <div class="price">$90<span class="muted" style="font-weight:600">/mo</span></div>
-            </article>
+            </div>
         </div>
-
-        <div class="cta-row">
-            <span class="badge"><span class="dot"></span> Uptime SLA</span>
-            <span class="badge"><span class="dot"></span> DDoS Protection</span>
-            <span class="badge"><span class="dot"></span> Managed Backups</span>
-        </div>
-
-        <button class="button">Start Your Free Trial</button>
-    </section>
-
-    <!-- Storage panel (placeholder) -->
-    <section id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" hidden>
-        <div class="grid">
-            <article class="card">
-                <h3>Object Storage</h3>
-                <div class="muted specs">First 250GB included<br/>$0.015/GB-mo thereafter</div>
-                <div class="price">$5<span class="muted">/mo</span></div>
-            </article>
-            <article class="card">
-                <h3>Cold Storage</h3>
-                <div class="muted specs">Low-cost, infrequent access</div>
-                <div class="price">$3<span class="muted">/mo</span></div>
-            </article>
-            <article class="card">
-                <h3>CDN Add‑On</h3>
-                <div class="muted specs">Global edge delivery</div>
-                <div class="price">$9<span class="muted">/mo</span></div>
-            </article>
-        </div>
-        <div class="cta-row">
-            <span class="badge"><span class="dot"></span> S3‑compatible</span>
-            <span class="badge"><span class="dot"></span> Durable & Secure</span>
-            <span class="badge"><span class="dot"></span> Simple Pricing</span>
-        </div>
-        <button class="button">Start Your Free Trial</button>
-    </section>
-
-    <!-- Networking panel (placeholder) -->
-    <section id="panel-networking" role="tabpanel" aria-labelledby="tab-networking" hidden>
-        <div class="grid">
-            <article class="card">
-                <h3>Private VLAN</h3>
-                <div class="muted specs">Isolated network segments</div>
-                <div class="price">$10<span class="muted">/mo</span></div>
-            </article>
-            <article class="card">
-                <h3>Static IPs</h3>
-                <div class="muted specs">Additional IPv4 addresses</div>
-                <div class="price">$3<span class="muted">/mo</span></div>
-            </article>
-            <article class="card">
-                <h3>Advanced Firewall</h3>
-                <div class="muted specs">Layer‑4 rules & logging</div>
-                <div class="price">$5<span class="muted">/mo</span></div>
-            </article>
-        </div>
-        <div class="cta-row">
-            <span class="badge"><span class="dot"></span> High‑speed Links</span>
-            <span class="badge"><span class="dot"></span> Isolation</span>
-            <span class="badge"><span class="dot"></span> Control</span>
-        </div>
-        <button class="button">Start Your Free Trial</button>
-    </section>
+    </form>
 </Layout>
-
-<script src="../scripts/test-tab.js"></script>
