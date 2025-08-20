@@ -1,0 +1,21 @@
+
+<svg
+        width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+        role="img" aria-label="N logo"
+>
+    <rect x="8" y="8" width="84" height="84" rx="6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="6"/>
+
+        <g fill="currentColor" shape-rendering="crispEdges">
+            <rect x="26" y="22" width="12" height="54"/>
+            <rect x="62" y="22" width="12" height="54"/>
+            <polygon points="26,22 39,22 74,76 61,76"/>
+        </g>
+
+    <style>
+        g { fill: #FF7C73; }
+        rect { stroke: #FF7C73; }
+    </style>
+</svg>
