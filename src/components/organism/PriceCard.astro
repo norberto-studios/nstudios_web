@@ -75,16 +75,16 @@ const money = (n: number) => n.toLocaleString(undefined, { minimumFractionDigits
         )}
 
         <!-- Current price -->
-        <p class="flex items-end gap-2">
+        <p class="flex flex-wrap items-end gap-2">
             <ins class="no-underline text-4xl leading-none tabular-nums font-semibold tracking-tight text-white whitespace-nowrap">
                 <!-- monthly current -->
                 <span class="hidden group-[:has([name=frequency][value=monthly]:checked)]/tiers:inline">
-          ${money(monthlyFinal)}
-        </span>
+                    ${money(monthlyFinal)}
+                </span>
                 <!-- annual current (monthly-equivalent) -->
                 <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline">
-          ${money(annualMonthlyEqFinal)}
-        </span>
+                    ${money(annualMonthlyEqFinal)}
+                </span>
             </ins>
             <span class="text-sm/6 font-semibold text-gray-400 whitespace-nowrap">/{priceUnit}</span>
 
@@ -92,8 +92,8 @@ const money = (n: number) => n.toLocaleString(undefined, { minimumFractionDigits
                     <span class="hidden group-[:has([name=frequency][value=annually]:checked)]/tiers:inline-flex
                      items-center gap-1 ml-2 shrink-0 rounded-full px-2 py-0.5
                      text-xs font-medium text-nst-coral bg-nst-coral/15">
-          Save ${money(savePerMonth)}/mo ({savePercent}%)
-        </span>
+                Save ${money(savePerMonth)}/mo ({savePercent}%)
+            </span>
             )}
         </p>
 
